@@ -48,28 +48,6 @@ export const AuthProvider = ({ children }) => {
         alert("Something went wrong!");
       }
     }
-    // let response = await fetch("http://localhost:8000/api/token/", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     username: e.target.username.value,
-    //     password: e.target.password.value,
-    //   }),
-    // });
-    // let data = await response.data;
-    // console.log("data:", data);
-
-    // if (response.status === 200) {
-    //   setAuthTokens(data);
-    //   setUser(jwtDecode(data.access));
-    //   localStorage.setItem("authTokens", JSON.stringify(data));
-    //   navigate("/");
-    // } else {
-    //   console.log(response.status);
-    //   alert("Something went wrong!");
-    // }
   };
 
   let logOutUser = () => {
@@ -79,40 +57,7 @@ export const AuthProvider = ({ children }) => {
     navigate("/login");
   };
 
-  // let updateToken = async () => {
-  //   let response = await fetch("http://localhost:8000/api/token/refresh/", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ refresh: authTokens?.refresh }),
-  //   });
-  //   let data = await response.json();
-
-  //   if (response.status === 200) {
-  //     setAuthTokens(data);
-  //     setUser(jwtDecode(data.access));
-  //     localStorage.setItem("authTokens", JSON.stringify(data));
-  //     console.log("Token updated!");
-  //   } else {
-  //     logOutUser();
-  //   }
-  //   if (loading) {
-  //     setLoading(false);
-  //   }
-  // };
-
   useEffect(() => {
-    // if (loading) {
-    //   updateToken();
-    // }
-    // let fourMinutes = 1000 * 60 * 4;
-    // let interval = setInterval(() => {
-    //   if (authTokens) {
-    //     updateToken();
-    //   }
-    // }, fourMinutes);
-    // return () => clearInterval(interval);
 
     if (authTokens) {
       setUser(jwtDecode(authTokens.access));

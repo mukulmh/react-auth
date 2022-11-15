@@ -13,10 +13,12 @@ const Books = () => {
   }, []);
 
   let getBooks = async () => {
-    let response = await api.get("/api/books/");
+    try{let response = await api.get("/api/books/");
     if (response.status === 200) {
       // console.log(response.data);
       setBooks(response.data);
+    }}catch(err){
+      console.log(err.response.status)
     }
   };
   const dataSource = books;
